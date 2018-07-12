@@ -1,0 +1,84 @@
+{
+  "timestamp": "2018-07-12T12:33:05.211+0000",
+  "status": 400,
+  "error": "Bad Request",
+  "errors": [
+    {
+      "codes": [
+        "NotNull.userForm.email",
+        "NotNull.email",
+        "NotNull.java.lang.String",
+        "NotNull"
+      ],
+      "arguments": [
+        {
+          "codes": [
+            "userForm.email",
+            "email"
+          ],
+          "arguments": null,
+          "defaultMessage": "email",
+          "code": "email"
+        }
+      ],
+      "defaultMessage": "must not be null",
+      "objectName": "userForm",
+      "field": "email",
+      "rejectedValue": null,
+      "bindingFailure": false,
+      "code": "NotNull"
+    },
+    {
+      "codes": [
+        "NotNull.userForm.lastName",
+        "NotNull.lastName",
+        "NotNull.java.lang.String",
+        "NotNull"
+      ],
+      "arguments": [
+        {
+          "codes": [
+            "userForm.lastName",
+            "lastName"
+          ],
+          "arguments": null,
+          "defaultMessage": "lastName",
+          "code": "lastName"
+        }
+      ],
+      "defaultMessage": "must not be null",
+      "objectName": "userForm",
+      "field": "lastName",
+      "rejectedValue": null,
+      "bindingFailure": false,
+      "code": "NotNull"
+    },
+    {
+      "codes": [
+        "NotNull.userForm.firstName",
+        "NotNull.firstName",
+        "NotNull.java.lang.String",
+        "NotNull"
+      ],
+      "arguments": [
+        {
+          "codes": [
+            "userForm.firstName",
+            "firstName"
+          ],
+          "arguments": null,
+          "defaultMessage": "firstName",
+          "code": "firstName"
+        }
+      ],
+      "defaultMessage": "must not be null",
+      "objectName": "userForm",
+      "field": "firstName",
+      "rejectedValue": null,
+      "bindingFailure": false,
+      "code": "NotNull"
+    }
+  ],
+  "message": "Validation failed for object='userForm'. Error count: 3",
+  "path": "/signup"
+}
