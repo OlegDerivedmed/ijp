@@ -17,6 +17,7 @@ import javax.validation.Valid;
 
 @RestController
 @Api
+@CrossOrigin
 public class UsersController {
 
     @Autowired
@@ -28,4 +29,5 @@ public class UsersController {
         service.createUser(userForm);
         return ResponseEntity.ok(HttpStatus.CREATED);
     }
+
 }
