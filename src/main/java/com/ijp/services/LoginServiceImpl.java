@@ -6,6 +6,7 @@ import com.ijp.entities.User;
 import com.ijp.form.LoginForm;
 import com.ijp.repository.TokensRepository;
 import com.ijp.repository.UserRepository;
+import com.ijp.security.token.TokenAuthentication;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -32,9 +33,9 @@ public class LoginServiceImpl implements LoginService {
     public TokenDto login(LoginForm loginForm) {
         Optional<User> userCandidate = userRepository.findOneByLogin(loginForm.getLogin());
         if (userCandidate.isPresent()){
-            var user = userCandidate.get();
+            User user = userCandidate.get();
             if (passwordEncoder.matches(loginForm.getPassword(),user.getPassword())){
-                var token = Token.builder()
+                Token token = Token.builder()
                         .user(user)
                         .value(RandomStringUtils.random(64,true,true))
                         .build();

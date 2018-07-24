@@ -29,7 +29,7 @@ public class TokenAuthenticationProvider implements AuthenticationProvider {
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
 
-        var tokenAuthentication = (TokenAuthentication) authentication;
+        TokenAuthentication tokenAuthentication = (TokenAuthentication) authentication;
         Optional<Token> tokenCandidate = tokensRepository.findOneByValue(tokenAuthentication.getName());
 
         if (tokenCandidate.isPresent()){

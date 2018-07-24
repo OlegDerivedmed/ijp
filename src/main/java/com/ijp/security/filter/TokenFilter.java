@@ -24,7 +24,7 @@ public class TokenFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         String token = request.getParameter("token");
 
-        var tokenAuthentication = new TokenAuthentication(token);
+        TokenAuthentication tokenAuthentication = new TokenAuthentication(token);
         if (token == null){
             tokenAuthentication.setAuthenticated(false);
         } else {

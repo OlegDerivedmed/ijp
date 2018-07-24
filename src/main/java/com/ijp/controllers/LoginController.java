@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @Api
-@CrossOrigin
 public class LoginController {
     @Autowired
     private LoginService loginService;

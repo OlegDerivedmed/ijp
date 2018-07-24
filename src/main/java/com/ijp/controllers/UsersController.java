@@ -17,7 +17,6 @@ import javax.validation.Valid;
 
 @RestController
 @Api
-@CrossOrigin
 public class UsersController {
 
     @Autowired
