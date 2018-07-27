@@ -1,6 +1,7 @@
 package com.ijp.services;
 
 
+import com.ijp.entities.Token;
 import com.ijp.entities.User;
 import com.ijp.form.UserForm;
 
@@ -12,4 +13,5 @@ public interface UserService {
     void createUser(UserForm userForm);
     Optional<User> findByLogin(String login);
     Optional<User> fingById(long id);
+    Optional<User> findByToken(String token);
 }

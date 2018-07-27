@@ -2,8 +2,10 @@ package com.ijp.services;
 
 import com.ijp.entities.Role;
 import com.ijp.entities.State;
+import com.ijp.entities.Token;
 import com.ijp.entities.User;
 import com.ijp.form.UserForm;
+import com.ijp.repository.TokensRepository;
 import com.ijp.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -17,7 +19,7 @@ import java.util.Optional;
 public class UserServiceImpl implements UserService {
 
     @Autowired
-    private UserRepository repository;
+    private UserRepository userRepository;
 
     @Autowired
     PasswordEncoder encoder;
@@ -34,16 +36,21 @@ public class UserServiceImpl implements UserService {
                 .role(Role.USER)
                 .state(State.ACTIVE)
                 .build();
-        repository.save(user);
+        userRepository.save(user);
     }
 
     @Override
     public Optional<User> findByLogin(String login) {
-        return repository.findOneByLogin(login);
+        return userRepository.findOneByLogin(login);
     }
 
     @Override
     public Optional<User> fingById(long id) {
-        return repository.findById(id);
+        return userRepository.findById(id);
+    }
+
+    @Override
+    public Optional<User> findByToken(String value) {
+        return userRepository.findByTokensValue(value);
     }
 }
