@@ -4,8 +4,11 @@ import axios from 'axios';
 import Input from '../Input/Input';
 
 class Authorization extends Component {
-	loginEndpoint = 'http://ijp.northeurope.cloudapp.azure.com/login';
+	domain = 'http://ijp.northeurope.cloudapp.azure.com';
+	loginEndpoint = this.domain + '/login';
+	signupEndpoint = this.domain + '/signup';
 	authGetRequest () {
+		console.log(this);
 		axios.get(this.loginEndpoint).then(res => {
 			console.log(res);
 		})
@@ -31,7 +34,7 @@ class Authorization extends Component {
 			"password": "strinaag"
 		};
 
-		axios.post('http://localhost:8081/signup', data).then(res => {
+		axios.post(this.signupEndpoint, data).then(res => {
 			console.log(res);
 		})
 	}
@@ -52,9 +55,9 @@ class Authorization extends Component {
 					<Input inputType={"password"}/>
 				</form>
 
-				<div onClick={this.authGetRequest}>Send Login get request</div>
-				<div onClick={this.authPostRequest}>Send Login post request</div>
-				<div onClick={this.singUpPostRequest}>Send Sing Up request</div>
+				<div onClick={() => this.authGetRequest()}>Send Login get request</div>
+				<div onClick={() => this.authPostRequest()}>Send Login post request</div>
+				<div onClick={() => this.singUpPostRequest()}>Send Sing Up request</div>
 			</div>
 		)
 	}
