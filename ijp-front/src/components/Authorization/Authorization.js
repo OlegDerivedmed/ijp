@@ -4,8 +4,9 @@ import axios from 'axios';
 import Input from '../Input/Input';
 
 class Authorization extends Component {
+	loginEndpoint = 'http://ijp.northeurope.cloudapp.azure.com/login';
 	authGetRequest () {
-		axios.get('http://localhost:8081/login').then(res => {
+		axios.get(this.loginEndpoint).then(res => {
 			console.log(res);
 		})
 	}
@@ -16,7 +17,7 @@ class Authorization extends Component {
 			'password': 'olololo'
 		};
 
-		axios.post('http://localhost:8081/login', data).then(res => {
+		axios.post(this.loginEndpoint, data).then(res => {
 			console.log(res);
 		})
 	}
@@ -46,7 +47,7 @@ class Authorization extends Component {
 
 		return (
 			<div>
-				<form action="" style={style}>
+				<form style={style}>
 					<Input inputType="email" />
 					<Input inputType={"password"}/>
 				</form>
