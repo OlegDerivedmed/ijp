@@ -1,8 +1,9 @@
 package com.ijp.services;
 
+import com.ijp.entities.User;
 import com.ijp.form.UserForm;
 
 public interface UpdateService {
 
-    void updateUser(UserForm form);
+    void updateUser(User user, UserForm userForm);
 }

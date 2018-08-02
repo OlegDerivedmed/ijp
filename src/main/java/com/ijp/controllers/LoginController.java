@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @Api
 public class LoginController {
+
     @Autowired
     private LoginService loginService;
 
@@ -24,11 +25,5 @@ public class LoginController {
     @ApiOperation(value = "login method")
     public ResponseEntity<TokenDto> login(@RequestBody LoginForm loginForm){
         return ResponseEntity.ok(loginService.login(loginForm));
-    }
-
-    @GetMapping("/login")
-    @ApiOperation(value = "login get")
-    public ResponseEntity<HttpStatus> getLogin(){
-        return ResponseEntity.ok(HttpStatus.ACCEPTED);
     }
 }

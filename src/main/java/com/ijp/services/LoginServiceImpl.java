@@ -6,12 +6,13 @@ import com.ijp.entities.User;
 import com.ijp.form.LoginForm;
 import com.ijp.repository.TokensRepository;
 import com.ijp.repository.UserRepository;
-import com.ijp.security.token.TokenAuthentication;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 /**
@@ -38,6 +39,7 @@ public class LoginServiceImpl implements LoginService {
                 Token token = Token.builder()
                         .user(user)
                         .value(RandomStringUtils.random(64,true,true))
+                        .expires(LocalDateTime.now().plusDays(1))
                         .build();
                 tokensRepository.save(token);
                 return TokenDto.from(token);

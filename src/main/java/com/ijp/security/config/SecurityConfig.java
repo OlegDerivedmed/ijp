@@ -27,10 +27,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatcher("/**")
                 .authenticationProvider(tokenAuthenticationProvider)
                 .authorizeRequests()
-                .antMatchers("/users/**").hasAuthority("USER")
-                .antMatchers("/login").permitAll();
+                .antMatchers("/login").permitAll()
+                .antMatchers("/signUp").permitAll()
+//                .anyRequest().authenticated()
+                ;
         http.csrf().disable();
-        http.sessionManagement()
+        http
+                .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }
 }
