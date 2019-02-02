@@ -10,6 +10,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -38,5 +39,12 @@ public class User {
     private State state;
     @OneToMany(mappedBy = "user")
     private List<Token> tokens;
+    @OneToMany(mappedBy = "user")
+    private List<Post> posts;
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "Users_tags",
+    joinColumns = {@JoinColumn(name = "post_id")},
+    inverseJoinColumns = {@JoinColumn(name = "user_id")})
+    private Set<Tag> tags;
 
 }
